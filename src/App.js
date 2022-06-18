@@ -1,37 +1,9 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef} from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useSpring, a } from "@react-spring/three";
 import { OrbitControls } from "@react-three/drei";
+import Cube from "./Cube";
 
 import "./App.css";
-
-function Cube(props) {
-  
-  const [active, setActive] = useState(false);
-  const [hovered, setHovered] = useState(false);
-  const { scale, color } = useSpring({
-    scale: hovered ? 1.5 : 1,
-    color: active ? `#66ffff` : `#ffff66`,
-  });
-  const delay = 4;
-  useEffect(
-    () => {
-      setTimeout(() => setActive(false), delay * 1000)},
-    );
-      // clears timeout before running the new effect
-  return (
-    <a.mesh
-      {...props}
-      scale={scale}
-      onClick={() => setActive(!active)}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
-    >
-      <boxBufferGeometry />
-      <a.meshStandardMaterial color={color} />
-    </a.mesh>
-  );
-}
 
 function Spin({ children }) {
   const ref = useRef();
