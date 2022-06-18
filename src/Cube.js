@@ -1,7 +1,10 @@
 import { useState, useEffect } from "react";
 import { useSpring, a } from "@react-spring/three";
-
+import { useControls } from './useControls'
 export default function Cube(props) {
+  
+  const controls = useControls()
+
   const [active, setActive] = useState(false);
   const [hovered, setHovered] = useState(false);
   const { scale, color } = useSpring({
