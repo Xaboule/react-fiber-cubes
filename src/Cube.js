@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { useSpring, a } from '@react-spring/three';
 import { useControls } from './useControls';
 import { useFrame } from '@react-three/fiber';
+
+
 export default function Cube(props) {
   const controls = useControls();
   const { position } = props;
@@ -13,6 +15,8 @@ export default function Cube(props) {
     color: active ? `#66ffff` : `#ffff66`,
   });
   const delay = 4;
+
+
   useFrame(() => {
     if (controls.current.forward) {
       setCubePos([cubePos[0], cubePos[1], cubePos[2] + 0.1]);
@@ -32,8 +36,10 @@ export default function Cube(props) {
       onPointerOver={() => setHovered(true)}
       onPointerOut={() => setHovered(false)}
     >
+
       <boxBufferGeometry />
       <a.meshStandardMaterial color={color} />
+
     </a.mesh>
   );
 }
